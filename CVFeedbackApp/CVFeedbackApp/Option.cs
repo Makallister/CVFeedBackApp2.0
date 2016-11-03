@@ -10,16 +10,61 @@ namespace CVFeedbackApp
     {
         private string optionTitle;
         private string optionMessage;
+        private static Option newOption;
 
-        public void GetOptionTitle(string gotTitle)
+        /// <summary>
+        /// Sets Option Title
+        /// </summary>
+        /// <param name="gotTitle"></param>
+        public void SetOptionTitle(string gotTitle)
         {
-            //gets option title
+            
             gotTitle = optionTitle;
         }
-        public void GetOptionMessage (string gotMessage)
+
+        /// <summary>
+        /// Sets the message for the option
+        /// </summary>
+        /// <param name="gotMessage"></param>
+        public void SetOptionMessage (string gotMessage)
         {
             gotMessage = optionMessage;
-            //gets option message
+            
+        }
+
+        /// <summary>
+        /// Returns newOption, if it dosen't exist creates it
+        /// </summary>
+        /// <returns>newOption</returns>
+        public static Option GetOption()
+        {
+            if (newOption == null)
+            {
+                Option createdOption = new CVFeedbackApp.Option();
+                createdOption = newOption;
+                return newOption;
+            }
+            else
+            {
+                return newOption;
+            }
+        }
+
+        /// <summary>
+        /// Returns string optiontitle
+        /// </summary>
+        /// <returns>optionTitle</returns>
+        public string GetTitle()
+        {
+            return optionTitle;
+        }
+        /// <summary>
+        /// returns string getmessage
+        /// </summary>
+        /// <returns>optionMessage</returns>
+        public string GetMessage()
+        {
+            return optionMessage;
         }
 
     }
