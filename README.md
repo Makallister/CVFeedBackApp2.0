@@ -1,2 +1,2 @@
-# CVFeedBackApp2.0
-Software Engineering ARU Project
+# CVFeedbackApp
+ARU Year 2 Software Engineering Assigment
