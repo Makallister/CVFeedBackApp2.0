@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.OptionSetTitle = new System.Windows.Forms.TextBox();
+            this.OptionSetTitleTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SaveOtionCategory = new System.Windows.Forms.Button();
             this.EditPreviousOptions = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // OptionSetTitle
+            // OptionSetTitleTextbox
             // 
-            this.OptionSetTitle.Location = new System.Drawing.Point(77, 84);
-            this.OptionSetTitle.Name = "OptionSetTitle";
-            this.OptionSetTitle.Size = new System.Drawing.Size(206, 20);
-            this.OptionSetTitle.TabIndex = 0;
+            this.OptionSetTitleTextbox.Location = new System.Drawing.Point(77, 84);
+            this.OptionSetTitleTextbox.Name = "OptionSetTitleTextbox";
+            this.OptionSetTitleTextbox.Size = new System.Drawing.Size(206, 20);
+            this.OptionSetTitleTextbox.TabIndex = 0;
             // 
             // label1
             // 
@@ -78,7 +78,7 @@
             this.Controls.Add(this.EditPreviousOptions);
             this.Controls.Add(this.SaveOtionCategory);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.OptionSetTitle);
+            this.Controls.Add(this.OptionSetTitleTextbox);
             this.Name = "AddOptionSet";
             this.Text = "AddOptionSet";
             this.ResumeLayout(false);
@@ -88,7 +88,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox OptionSetTitle;
+        private System.Windows.Forms.TextBox OptionSetTitleTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SaveOtionCategory;
         private System.Windows.Forms.Button EditPreviousOptions;

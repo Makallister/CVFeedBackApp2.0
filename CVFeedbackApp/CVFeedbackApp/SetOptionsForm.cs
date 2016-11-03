@@ -16,31 +16,27 @@ namespace CVFeedbackApp
         {
             InitializeComponent();
         }
-        /*int OptionSetNumber;
-        protected int AddOptionSet(int OptionCounter)
+        private void OptionAddition ()
         {
-            OptionSetNumber = OptionCounter ;
+            //Creates intance of optionSet and Option
+            OptionSet OptionSetInstance = OptionSet.GetOptionSet();
+            Option OptionInstance = Option.GetOption();
 
-            return 1;
-            
+            //populates option from textboxes
+            OptionInstance.SetOptionTitle(OptionTitleTextBox.Text);
+            OptionInstance.SetOptionMessage(OptionMessageTextBox.Text);
+
+            //Populates OptionSet with new Option
+            OptionSetInstance.AddOptionToSet(OptionInstance);
         }
-        */
         private void AddOptiontoSet_MouseClick(object sender, MouseEventArgs e)
         {
             this.Hide();
-            //store textbox values in temporary strings.
-            string optionTitle = OptionTitleTextBox.Text;
-            string optionMessage = OptionMessageTextBox.Text;
 
-            //create new Obejct Option
-            Option newOption = new Option();
+            //Calls Option addition method
 
-            //Call Option contructors
-            newOption.GetOptionTitle(optionTitle);
-            newOption.GetOptionMessage(optionMessage);
+            OptionAddition();
 
-            //Send Option to OptionSet
-            
 
             //creates new form
             SetOptionsForm OptionForm2 = new SetOptionsForm();
@@ -50,6 +46,12 @@ namespace CVFeedbackApp
         private void NewOptionSet_MouseClick(object sender, MouseEventArgs e)
         {
             this.Hide();
+
+            //Calls Option addition method
+
+            OptionAddition();
+
+
             AddOptionSet Optionset2 = new AddOptionSet();
             Optionset2.ShowDialog();
         }

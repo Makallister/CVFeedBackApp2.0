@@ -20,14 +20,16 @@ namespace CVFeedbackApp
         private void SaveOptionCategory_MouseClick(object sender, MouseEventArgs e)
         {
             this.Hide();
-            //Temporary Strings holding values from textbox
-            string optionSetTitle = OptionSetTitle.Text;
 
-            //Creates new OptionSet
-            OptionSet newOptionSet = new OptionSet();
+            //Creates an instance of OptionSet and an instance of Generic Template
+            GenericTemplate generictemplateInstance = GenericTemplate.GetGenericTemplate();
+            OptionSet OptionSetInstance = OptionSet.GetOptionSet();
 
-            //Calls constructors
-            newOptionSet.GetOptionSetTitle(optionSetTitle);
+            //Populates OptionSetInstance with texbox content
+            OptionSetInstance.SetOptionSetTitle(OptionSetTitleTextbox.Text);
+
+            //Adds OptionSet to generictemplate
+            generictemplateInstance.AddOption(OptionSetInstance);
 
             //Creates and displays new OptionForm
             SetOptionsForm OptionForm1 = new SetOptionsForm();

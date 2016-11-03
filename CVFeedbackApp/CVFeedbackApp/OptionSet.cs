@@ -8,18 +8,70 @@ namespace CVFeedbackApp
 {
     class OptionSet
     {
-        private string OptionSetTitle;
-        private List<Option> OptionsInThisSet;
+        //Atributes of optionSet
+        private string optionSetTitle;
+        private List<Option> optionsInThisSet;
+        static private OptionSet newOptionSet;
 
-        public void GetOptionSetTitle(string gotOptionSetTitle)
+
+        //Constructors
+
+        /// <summary>
+        /// Sets the Optionset Title
+        /// </summary>
+        /// <param name="gotOptionSetTitle"></param>
+        public void SetOptionSetTitle(string gotOptionSetTitle)
         {
-            //sets OptionSetTitle
-            gotOptionSetTitle = OptionSetTitle;
+            
+            gotOptionSetTitle = optionSetTitle;
         }
+
+        /// <summary>
+        /// Adds option to set
+        /// </summary>
+        /// <param name="addedOption"></param>
         public void AddOptionToSet (Option addedOption)
         {
-            //adds new option to set
-            OptionsInThisSet.Add(addedOption);
+            
+            optionsInThisSet.Add(addedOption);
+        }
+
+        /// <summary>
+        /// Gets newOptionSet, if null creates new one
+        /// </summary>
+        /// <returns></returns>
+        public static OptionSet GetOptionSet()
+        {
+            if(newOptionSet == null)
+            {
+                OptionSet createdOptionSet = new OptionSet();
+                createdOptionSet = newOptionSet;
+                return newOptionSet;
+            }
+            else
+            {
+                return newOptionSet;
+            }
+        }
+
+        /// <summary>
+        /// Gets title of optionset
+        /// </summary>
+        /// <returns>newOptionSet.optionSetTitle</returns>
+        public string GetOptionSetTitle()
+        {
+            return newOptionSet.optionSetTitle;
+        }
+
+        /// <summary>
+        /// Gets all Options in Option Set
+        /// </summary>
+        /// <returns>newOptionSet.optionsInThisSet[i]</returns>
+        public Option GetOptionList()
+        {
+            for (int i = 0; i <= optionsInThisSet.Count; i++)
+                return newOptionSet.optionsInThisSet[i];
+            return null;
         }
     }
 }
