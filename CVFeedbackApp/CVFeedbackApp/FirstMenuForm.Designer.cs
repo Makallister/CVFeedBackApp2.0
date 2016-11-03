@@ -31,6 +31,7 @@
             this.NewTemplateButton = new System.Windows.Forms.Button();
             this.EditTemplateButton = new System.Windows.Forms.Button();
             this.MakeReplyButton = new System.Windows.Forms.Button();
+            this.DBButton1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NewTemplateButton
@@ -63,11 +64,22 @@
             this.MakeReplyButton.UseVisualStyleBackColor = true;
             this.MakeReplyButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MakeReplyButton_MouseClick);
             // 
+            // DBButton1
+            // 
+            this.DBButton1.Location = new System.Drawing.Point(258, 257);
+            this.DBButton1.Name = "DBButton1";
+            this.DBButton1.Size = new System.Drawing.Size(75, 23);
+            this.DBButton1.TabIndex = 3;
+            this.DBButton1.Text = "View DB";
+            this.DBButton1.UseVisualStyleBackColor = true;
+            this.DBButton1.Click += new System.EventHandler(this.DBButton1_Click);
+            // 
             // FirstMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 319);
+            this.Controls.Add(this.DBButton1);
             this.Controls.Add(this.MakeReplyButton);
             this.Controls.Add(this.EditTemplateButton);
             this.Controls.Add(this.NewTemplateButton);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button NewTemplateButton;
         private System.Windows.Forms.Button EditTemplateButton;
         private System.Windows.Forms.Button MakeReplyButton;
+        private System.Windows.Forms.Button DBButton1;
     }
 }
 

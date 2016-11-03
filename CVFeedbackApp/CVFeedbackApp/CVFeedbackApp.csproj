@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -67,23 +67,25 @@
     <Compile Include="AddOptionSet.Designer.cs">
       <DependentUpon>AddOptionSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="CreateNewTemplateForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateNewTemplateForm.Designer.cs">
       <DependentUpon>CreateNewTemplateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="DBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBForm.Designer.cs">
+      <DependentUpon>DBForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditTemplateForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditTemplateForm.Designer.cs">
       <DependentUpon>EditTemplateForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ErrorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ErrorForm.Designer.cs">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FirstMenuForm.cs">
       <SubType>Form</SubType>
@@ -120,17 +122,22 @@
     <Compile Include="SetOptionsForm.Designer.cs">
       <DependentUpon>SetOptionsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TemplateDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TemplateDBDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddOptionSet.resx">
       <DependentUpon>AddOptionSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateNewTemplateForm.resx">
       <DependentUpon>CreateNewTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DBForm.resx">
+      <DependentUpon>DBForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditTemplateForm.resx">
       <DependentUpon>EditTemplateForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ErrorForm.resx">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstMenuForm.resx">
       <DependentUpon>FirstMenuForm.cs</DependentUpon>
@@ -166,6 +173,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TemplateDBDataSet.xsc">
+      <DependentUpon>TemplateDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TemplateDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TemplateDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TemplateDBDataSet.xss">
+      <DependentUpon>TemplateDBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -181,6 +199,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TemplateDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TemplateDB_log.ldf">
+      <DependentUpon>TemplateDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

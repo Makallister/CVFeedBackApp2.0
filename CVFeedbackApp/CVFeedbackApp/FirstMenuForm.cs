@@ -39,6 +39,11 @@ namespace CVFeedbackApp
             NewReplyForm.ShowDialog();
         }
 
-       
+        private void DBButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DBForm NewDBForm = new DBForm();
+            NewDBForm.ShowDialog();
+        }
     }
 }

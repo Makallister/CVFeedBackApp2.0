@@ -17,6 +17,13 @@ namespace CVFeedbackApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FirstMenuForm());
+
+            //add connection string here
+            string connectionString = Properties.Settings.Default.TemplateDBConnectionString;
+            DBConnection.ConnectionStr = connectionString;
+
+            Application.Run(new DBForm());
+
         }
     }
 }
