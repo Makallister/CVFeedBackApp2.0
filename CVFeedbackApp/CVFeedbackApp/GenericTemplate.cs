@@ -17,6 +17,16 @@ namespace CVFeedbackApp
 
         //constructors
 
+
+        
+            /// <summary>
+            /// Sets the Instance of generic template
+            /// </summary>
+            /// <param name="gotGenericTemplateInstance"></param>
+        public static void SetGenericTemplateInstance(GenericTemplate gotGenericTemplateInstance)
+        {
+            gotGenericTemplateInstance = newGenericTemplate;
+        }
             /// <summary>
             /// Sets the Template Title into newGenericTemplate
             /// </summary>
@@ -75,7 +85,7 @@ namespace CVFeedbackApp
         /// Adds optionSet Object
         /// </summary>
         /// <param name="addedOption"></param>
-        public void AddOption (OptionSet addedOption)
+        public void AddOptionSet (OptionSet addedOption)
         {
             OptionSetList.Add(addedOption);
         }
@@ -124,6 +134,15 @@ namespace CVFeedbackApp
             for (int i = 0; i <= OptionSetList.Count; i++)
                 return newGenericTemplate.OptionSetList[i];
             return null;          
+        }
+
+
+        /// <summary>
+        /// Deletes the Generic Template Instance
+        /// </summary>
+        public static void DeleteGenericTemplateInstance()
+        {
+            newGenericTemplate = null;
         }
 
    

@@ -21,15 +21,14 @@ namespace CVFeedbackApp
         {
             this.Hide();
 
-            //Creates an instance of OptionSet and an instance of Generic Template
-            GenericTemplate generictemplateInstance = GenericTemplate.GetGenericTemplate();
+            //Creates an instance of OptionSet
             OptionSet OptionSetInstance = OptionSet.GetOptionSet();
 
             //Populates OptionSetInstance with texbox content
             OptionSetInstance.SetOptionSetTitle(OptionSetTitleTextbox.Text);
 
-            //Adds OptionSet to generictemplate
-            generictemplateInstance.AddOption(OptionSetInstance);
+            //Sets the new value for OptionSet tilte to singleton
+            OptionSet.SetNewOptionSet(OptionSetInstance);
 
             //Creates and displays new OptionForm
             SetOptionsForm OptionForm1 = new SetOptionsForm();
