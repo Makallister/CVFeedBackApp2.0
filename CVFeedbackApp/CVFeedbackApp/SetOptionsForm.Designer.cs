@@ -30,7 +30,7 @@
         {
             this.OptionTitleTextBox = new System.Windows.Forms.TextBox();
             this.OptionMessageTextBox = new System.Windows.Forms.RichTextBox();
-            this.AddOptiontoSet = new System.Windows.Forms.Button();
+            this.AddOptionToSet = new System.Windows.Forms.Button();
             this.NewOptionSet = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,15 +55,15 @@
             this.OptionMessageTextBox.TabIndex = 1;
             this.OptionMessageTextBox.Text = "";
             // 
-            // AddOptiontoSet
+            // AddOptionToSet
             // 
-            this.AddOptiontoSet.Location = new System.Drawing.Point(60, 366);
-            this.AddOptiontoSet.Name = "AddOptiontoSet";
-            this.AddOptiontoSet.Size = new System.Drawing.Size(205, 23);
-            this.AddOptiontoSet.TabIndex = 2;
-            this.AddOptiontoSet.Text = "Save and add other option";
-            this.AddOptiontoSet.UseVisualStyleBackColor = true;
-            this.AddOptiontoSet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddOptiontoSet_MouseClick);
+            this.AddOptionToSet.Location = new System.Drawing.Point(60, 366);
+            this.AddOptionToSet.Name = "AddOptionToSet";
+            this.AddOptionToSet.Size = new System.Drawing.Size(205, 23);
+            this.AddOptionToSet.TabIndex = 2;
+            this.AddOptionToSet.Text = "Save and add other option";
+            this.AddOptionToSet.UseVisualStyleBackColor = true;
+            this.AddOptionToSet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddOptionToSet_MouseClick);
             // 
             // NewOptionSet
             // 
@@ -141,7 +141,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.NewOptionSet);
-            this.Controls.Add(this.AddOptiontoSet);
+            this.Controls.Add(this.AddOptionToSet);
             this.Controls.Add(this.OptionMessageTextBox);
             this.Controls.Add(this.OptionTitleTextBox);
             this.Name = "SetOptionsForm";
@@ -155,7 +155,7 @@
 
         private System.Windows.Forms.TextBox OptionTitleTextBox;
         private System.Windows.Forms.RichTextBox OptionMessageTextBox;
-        private System.Windows.Forms.Button AddOptiontoSet;
+        private System.Windows.Forms.Button AddOptionToSet;
         private System.Windows.Forms.Button NewOptionSet;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;

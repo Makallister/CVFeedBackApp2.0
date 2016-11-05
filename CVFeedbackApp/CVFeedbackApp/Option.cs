@@ -32,6 +32,16 @@ namespace CVFeedbackApp
             
         }
 
+
+        /// <summary>
+        /// Sets Instance of Object
+        /// </summary>
+        /// <param name="gotOption"></param>
+        static public void SetOption (Option gotOption)
+        {
+            gotOption = newOption;
+        }
+
         /// <summary>
         /// Returns newOption, if it dosen't exist creates it
         /// </summary>
@@ -65,6 +75,14 @@ namespace CVFeedbackApp
         public string GetMessage()
         {
             return optionMessage;
+        }
+
+        /// <summary>
+        /// Sets newOption to null, so diferent instances can be created afterwards
+        /// </summary>
+        static public void DeleteOptionInstance()
+        {
+            newOption = null;
         }
 
     }

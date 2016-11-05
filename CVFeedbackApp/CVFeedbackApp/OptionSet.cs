@@ -16,6 +16,18 @@ namespace CVFeedbackApp
 
         //Constructors
 
+        
+        /// <summary>
+        /// Sets instance of newOptionSet
+        /// </summary>
+        /// <param name="gotOptionSet"></param>
+        static public void SetNewOptionSet (OptionSet gotOptionSet)
+        {
+            gotOptionSet = newOptionSet;
+        }
+        
+        
+        
         /// <summary>
         /// Sets the Optionset Title
         /// </summary>
@@ -38,8 +50,9 @@ namespace CVFeedbackApp
 
         /// <summary>
         /// Gets newOptionSet, if null creates new one
+        /// Singleton pattern
         /// </summary>
-        /// <returns></returns>
+        /// <returns>newOptionSet</returns>
         public static OptionSet GetOptionSet()
         {
             if(newOptionSet == null)
@@ -72,6 +85,15 @@ namespace CVFeedbackApp
             for (int i = 0; i <= optionsInThisSet.Count; i++)
                 return newOptionSet.optionsInThisSet[i];
             return null;
+        }
+
+
+        /// <summary>
+        /// Sets newOptionSet to null, so diferent instances can be created afterwards
+        /// </summary>
+        static public void DeleteOptionSet()
+        {
+            newOptionSet = null;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace CVFeedbackApp
         }
         private void OptionAddition ()
         {
-            //Creates intance of optionSet and Option
+            //Gets/Creates intance of optionSet and Option
             OptionSet OptionSetInstance = OptionSet.GetOptionSet();
             Option OptionInstance = Option.GetOption();
 
@@ -28,8 +28,14 @@ namespace CVFeedbackApp
 
             //Populates OptionSet with new Option
             OptionSetInstance.AddOptionToSet(OptionInstance);
+
+            //Sets Both Instances
+            Option.SetOption(OptionInstance);
+            OptionSet.SetNewOptionSet(OptionSetInstance);
+
+            
         }
-        private void AddOptiontoSet_MouseClick(object sender, MouseEventArgs e)
+        private void AddOptionToSet_MouseClick(object sender, MouseEventArgs e)
         {
             this.Hide();
 
@@ -37,8 +43,11 @@ namespace CVFeedbackApp
 
             OptionAddition();
 
+            //Deletes Option for new option to be added
+            Option.DeleteOptionInstance();
 
-            //creates new form
+
+            //creates new form (loop)
             SetOptionsForm OptionForm2 = new SetOptionsForm();
             OptionForm2.ShowDialog(); 
         }
@@ -51,6 +60,19 @@ namespace CVFeedbackApp
 
             OptionAddition();
 
+            //Gets intance of Generic template and OptionSet
+            GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
+            OptionSet optionSetInstance = OptionSet.GetOptionSet();
+
+            //Feeds OptionSet to Generic Template Instance
+
+            genericTemplateInstance.AddOptionSet(optionSetInstance);
+
+            //Deletes Current OptionSet
+
+            OptionSet.DeleteOptionSet();
+
+            //Creates and displays AddOptionSetForm
 
             AddOptionSet Optionset2 = new AddOptionSet();
             Optionset2.ShowDialog();
@@ -65,5 +87,6 @@ namespace CVFeedbackApp
         {
             //go to previous Form
         }
+
     }
 }

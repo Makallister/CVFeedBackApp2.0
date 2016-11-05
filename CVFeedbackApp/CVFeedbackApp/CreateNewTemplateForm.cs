@@ -33,6 +33,17 @@ namespace CVFeedbackApp
             newGenericTemplate.GetHeader(header);
             newGenericTemplate.GetFooter(footer);
 
+<<<<<<< HEAD
+=======
+            //Populates genericTemplateInstance with contents from texboxes
+            genericTemplateInstance.SetTemplateTitle(TitleTextBox.Text);
+            genericTemplateInstance.SetHeader(HeaderTextBox.Text);
+            genericTemplateInstance.SetFooter(FooterTextBox.Text);
+
+            //Sets instance of generic template
+            GenericTemplate.SetGenericTemplateInstance(genericTemplateInstance);
+             
+>>>>>>> 8b4130b0fe7f4b4346ac3f0e2808fcf0735793cd
 
             //Creates AddOptionset Template and displays it
             AddOptionSet Optionset1 = new AddOptionSet();
