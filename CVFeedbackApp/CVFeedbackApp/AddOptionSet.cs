@@ -21,8 +21,9 @@ namespace CVFeedbackApp
         {
             this.Hide();
 
-            //Creates an instance of OptionSet
+            //Creates an instance of OptionSet and generic template
             OptionSet OptionSetInstance = OptionSet.GetOptionSet();
+
 
             //Populates OptionSetInstance with texbox content
             OptionSetInstance.SetOptionSetTitle(OptionSetTitleTextbox.Text);

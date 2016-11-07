@@ -25,7 +25,7 @@ namespace CVFeedbackApp
             /// <param name="gotGenericTemplateInstance"></param>
         public static void SetGenericTemplateInstance(GenericTemplate gotGenericTemplateInstance)
         {
-            gotGenericTemplateInstance = newGenericTemplate;
+            newGenericTemplate = gotGenericTemplateInstance;
         }
             /// <summary>
             /// Sets the Template Title into newGenericTemplate
@@ -33,7 +33,9 @@ namespace CVFeedbackApp
             /// <param name="gotTitle"></param>
         public void SetTemplateTitle(string gotTitle)
         {
-            gotTitle = templateTitle;
+            
+            templateTitle = gotTitle;
+
         }
 
 
@@ -44,7 +46,7 @@ namespace CVFeedbackApp
         /// <param name="gotHeader"></param>
         public void SetHeader(string gotHeader)
         {
-            gotHeader = header;
+            header = gotHeader;
         }
         
         
@@ -55,7 +57,7 @@ namespace CVFeedbackApp
         /// <param name="gotFooter"></param>
         public void SetFooter(string gotFooter)
         {
-            gotFooter = footer;
+            footer = gotFooter;
         }
 
         
@@ -68,8 +70,10 @@ namespace CVFeedbackApp
         {
             if(newGenericTemplate == null)
             {
+             
                 GenericTemplate createdNewGenericTemplate = new GenericTemplate();
-                createdNewGenericTemplate = newGenericTemplate;
+                newGenericTemplate = createdNewGenericTemplate ;
+                newGenericTemplate.OptionSetList = new List<OptionSet>();
                 return newGenericTemplate;
                     
             }

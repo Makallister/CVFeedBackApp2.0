@@ -16,7 +16,7 @@ namespace CVFeedbackApp
         {
             InitializeComponent();
         }
-        private void OptionAddition ()
+        private void OptionAddition()
         {
             //Gets/Creates intance of optionSet and Option
             OptionSet OptionSetInstance = OptionSet.GetOptionSet();
@@ -33,7 +33,7 @@ namespace CVFeedbackApp
             Option.SetOption(OptionInstance);
             OptionSet.SetNewOptionSet(OptionSetInstance);
 
-            
+
         }
         private void AddOptionToSet_MouseClick(object sender, MouseEventArgs e)
         {
@@ -42,6 +42,7 @@ namespace CVFeedbackApp
             //Calls Option addition method
 
             OptionAddition();
+
 
             //Deletes Option for new option to be added
             Option.DeleteOptionInstance();

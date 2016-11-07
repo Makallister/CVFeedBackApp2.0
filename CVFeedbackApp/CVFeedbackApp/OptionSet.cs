@@ -23,7 +23,7 @@ namespace CVFeedbackApp
         /// <param name="gotOptionSet"></param>
         static public void SetNewOptionSet (OptionSet gotOptionSet)
         {
-            gotOptionSet = newOptionSet;
+             newOptionSet = gotOptionSet;
         }
         
         
@@ -34,8 +34,8 @@ namespace CVFeedbackApp
         /// <param name="gotOptionSetTitle"></param>
         public void SetOptionSetTitle(string gotOptionSetTitle)
         {
-            
-            gotOptionSetTitle = optionSetTitle;
+
+            optionSetTitle = gotOptionSetTitle;
         }
 
         /// <summary>
@@ -58,7 +58,8 @@ namespace CVFeedbackApp
             if(newOptionSet == null)
             {
                 OptionSet createdOptionSet = new OptionSet();
-                createdOptionSet = newOptionSet;
+                newOptionSet = createdOptionSet;
+                newOptionSet.optionsInThisSet = new List<Option>();
                 return newOptionSet;
             }
             else

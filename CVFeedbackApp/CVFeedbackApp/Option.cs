@@ -18,8 +18,8 @@ namespace CVFeedbackApp
         /// <param name="gotTitle"></param>
         public void SetOptionTitle(string gotTitle)
         {
-            
-            gotTitle = optionTitle;
+
+            optionTitle = gotTitle;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace CVFeedbackApp
         /// <param name="gotMessage"></param>
         public void SetOptionMessage (string gotMessage)
         {
-            gotMessage = optionMessage;
+            optionMessage = gotMessage;
             
         }
 
@@ -39,7 +39,7 @@ namespace CVFeedbackApp
         /// <param name="gotOption"></param>
         static public void SetOption (Option gotOption)
         {
-            gotOption = newOption;
+            newOption = gotOption;
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace CVFeedbackApp
             if (newOption == null)
             {
                 Option createdOption = new CVFeedbackApp.Option();
-                createdOption = newOption;
+                newOption = createdOption;
                 return newOption;
             }
             else
