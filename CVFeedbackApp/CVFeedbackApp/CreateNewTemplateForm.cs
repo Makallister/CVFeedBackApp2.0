@@ -20,21 +20,10 @@ namespace CVFeedbackApp
         private void SaveHeaderAndFooter_MouseClick(object sender, MouseEventArgs e)
         {
             this.Hide();
-            //Creates a new generic tempate
-            GenericTemplate newGenericTemplate = new GenericTemplate();
 
-            //Temporary storing strings set by textboxes
-            string title = TitleTextBox.Text;
-            string header = HeaderTextBox.Text;
-            string footer = FooterTextBox.Text;
+            //Creates instance of Generic template
+            GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
 
-            //Using contructors from Generic template to store user input;
-            newGenericTemplate.GetTemplateTitle(title);
-            newGenericTemplate.GetHeader(header);
-            newGenericTemplate.GetFooter(footer);
-
-//<<<<<<< HEAD
-//=======
             //Populates genericTemplateInstance with contents from texboxes
             genericTemplateInstance.SetTemplateTitle(TitleTextBox.Text);
             genericTemplateInstance.SetHeader(HeaderTextBox.Text);
@@ -43,13 +32,10 @@ namespace CVFeedbackApp
             //Sets instance of generic template
             GenericTemplate.SetGenericTemplateInstance(genericTemplateInstance);
 
-            //dno what this is           
-//>>>>>>> 8b4130b0fe7f4b4346ac3f0e2808fcf0735793cd
 
             //Creates AddOptionset Template and displays it
             AddOptionSet Optionset1 = new AddOptionSet();
             Optionset1.ShowDialog();
-
         }
 
         private void LoadTemplate_MouseClick(object sender, MouseEventArgs e)
