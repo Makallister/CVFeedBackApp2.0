@@ -27,9 +27,9 @@ namespace CVFeedbackApp
         private void updateGridView()
         {
             // populate the GridView
-            DataSet dsPerson = DBConnection.getDatabaseConection().getDataSet(Constants.SelectAll);
+            DataSet dsGenTemp = DBConnection.getDatabaseConection().getDataSet(Constants.SelectAll);
             //get the only table in the dataset person
-            DataTable table = dsPerson.Tables[0];
+            DataTable table = dsGenTemp.Tables[0];
 
             //set up the data grid view
             DBdgv.DataSource = table;
@@ -37,5 +37,6 @@ namespace CVFeedbackApp
 
         }
 
+        
     }
 }
