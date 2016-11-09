@@ -12,9 +12,11 @@ namespace CVFeedbackApp
 {
     public partial class CreateNewTemplateForm : Form
     {
+        ErrorChecker ErrorCheck = new ErrorChecker();
         public CreateNewTemplateForm()
         {
             InitializeComponent();
+            
         }
 
         private void SaveHeaderAndFooter_MouseClick(object sender, MouseEventArgs e)

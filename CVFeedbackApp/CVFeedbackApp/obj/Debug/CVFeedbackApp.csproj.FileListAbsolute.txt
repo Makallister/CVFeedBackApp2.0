@@ -92,3 +92,7 @@ C:\Users\fr236\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin
 C:\Users\fr236\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\TemplateDB_log.ldf
 C:\Users\fr236\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.exe
 C:\Users\fr236\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.pdb
+C:\Users\tom\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\TemplateDB.mdf
+C:\Users\tom\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\TemplateDB_log.ldf
+C:\Users\tom\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.exe
+C:\Users\tom\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.pdb

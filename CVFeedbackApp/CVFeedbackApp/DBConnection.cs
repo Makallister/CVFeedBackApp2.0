@@ -82,16 +82,23 @@ namespace CVFeedbackApp
         }
 
 
-        /*
-         * Insert the name and age into the DB
-         */
-        public void insert(string sqlQuery, String name, int age)
+
+        //insert strings into db
+
+        //sql for putting data into GenericTemplate table
+        public void insertToGenTemp(string genTempQuery, String title, String header, String footer)
         {
             SqlCommand command = new SqlCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = sqlQuery;
-            command.Parameters.Add(new SqlParameter("Name", name));
-            command.Parameters.Add(new SqlParameter("Age", age));
+            command.CommandText = genTempQuery;
+            /*
+            command.Parameters.Add(new SqlParameter("Title", title));
+            command.Parameters.Add(new SqlParameter("Header", header));
+            command.Parameters.Add(new SqlParameter("Footer", footer));
+            */
+
+            genTempQuery = "INSERT INTO GenericTemplate (title, header, footer,)" +
+               "Values('" + title + "', '" + header + "', '" + footer + "')";
 
             openConnection();
             command.Connection = connectionToDB;
@@ -103,7 +110,44 @@ namespace CVFeedbackApp
             Console.WriteLine("n-" + n);
         }
 
+        //sql for putting data into Option table
+        public void insertToOption(string optQuery, String title, String message)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = optQuery;
 
+            optQuery = "INSERT INTO GenericTemplate (title, message,)" +
+               "Values('" + title + "', '" + message + "')";
 
+            openConnection();
+            command.Connection = connectionToDB;
+
+            int n = command.ExecuteNonQuery();
+
+            closeConnection();
+
+            Console.WriteLine("n-" + n);
+        }
+
+        //sql for putting data into OptionSet table
+        public void insertToOptionSet(string optSetQuery, String title)
+        {
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = optSetQuery;
+            
+            optSetQuery = "INSERT INTO GenericTemplate (title)" +
+               "Values('" + title + "')";
+
+            openConnection();
+            command.Connection = connectionToDB;
+
+            int n = command.ExecuteNonQuery();
+
+            closeConnection();
+
+            Console.WriteLine("n-" + n);
+        }
     }
 }
