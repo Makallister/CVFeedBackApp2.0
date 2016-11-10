@@ -93,7 +93,7 @@ namespace CVFeedbackApp
             //Displays Message form asking for confirmation
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult textboxInput;
-            textboxInput = MessageBox.Show("Do you want to save this changes into" + genericTemplateInstance.GetTitle() + "?", "Save Progress", buttons);
+            textboxInput = MessageBox.Show("Do you want to save this changes into " + genericTemplateInstance.GetTitle() + "?", "Save Progress", buttons);
             if ( textboxInput == DialogResult.Yes )
             {
                 //creates instance of DBConnection and calls insertion method
@@ -110,7 +110,7 @@ namespace CVFeedbackApp
             }
             else
             {
-
+                //does nothing
             }
 
             
