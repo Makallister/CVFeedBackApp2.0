@@ -81,11 +81,16 @@ namespace CVFeedbackApp
         /// Gets all Options in Option Set
         /// </summary>
         /// <returns>newOptionSet.optionsInThisSet[i]</returns>
-        public Option GetOptionList()
+        public Option GetOptionAllOptions()
         {
             for (int i = 0; i <= optionsInThisSet.Count; i++)
                 return newOptionSet.optionsInThisSet[i];
             return null;
+        }
+        
+        public List<Option> GetOptionsList()
+        {
+            return optionsInThisSet;
         }
 
 

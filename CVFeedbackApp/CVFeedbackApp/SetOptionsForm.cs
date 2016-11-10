@@ -79,9 +79,43 @@ namespace CVFeedbackApp
             Optionset2.ShowDialog();
         }
 
+
+        /// <summary>
+        /// Save Generic template and return to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FinishTemplate_MouseClick(object sender, MouseEventArgs e)
         {
-            //Save Generic template and return to main menu.
+            //Creates instance Of Generic Template
+            GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
+
+            //Displays Message form asking for confirmation
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult textboxInput;
+            textboxInput = MessageBox.Show("Do you want to save this changes into" + genericTemplateInstance.GetTitle() + "?", "Save Progress", buttons);
+            if ( textboxInput == DialogResult.Yes )
+            {
+                //creates instance of DBConnection and calls insertion method
+                DBConnection connectionInstance = DBConnection.getDatabaseConection();
+                connectionInstance.insertToDB(null, genericTemplateInstance);
+
+                //Deletes GenericTemplate
+                GenericTemplate.DeleteGenericTemplateInstance();
+
+
+                this.Hide();
+                FirstMenuForm newFirstMenuForm = new FirstMenuForm();
+                newFirstMenuForm.ShowDialog();
+            }
+            else
+            {
+
+            }
+
+            
+
+
         }
 
         private void EditPreviousOptionSetTitle_MouseClick(object sender, MouseEventArgs e)

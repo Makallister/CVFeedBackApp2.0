@@ -140,6 +140,10 @@ namespace CVFeedbackApp
             return null;          
         }
 
+        public List<OptionSet> GetOptionSetList()
+        {
+            return OptionSetList;
+        }
 
         /// <summary>
         /// Deletes the Generic Template Instance

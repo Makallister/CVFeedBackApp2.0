@@ -86,19 +86,47 @@ namespace CVFeedbackApp
         //insert strings into db
 
         //sql for putting data into GenericTemplate table
-        public void insertToGenTemp(string genTempQuery, String title, String header, String footer)
+        public void insertToDB(string DBQuery, GenericTemplate GTInstance)
         {
+
+            
+
             SqlCommand command = new SqlCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = genTempQuery;
-            /*
-            command.Parameters.Add(new SqlParameter("Title", title));
-            command.Parameters.Add(new SqlParameter("Header", header));
-            command.Parameters.Add(new SqlParameter("Footer", footer));
-            */
+            command.CommandText = DBQuery;
 
-            genTempQuery = "INSERT INTO GenericTemplate (title, header, footer,)" +
-               "Values('" + title + "', '" + header + "', '" + footer + "')";
+
+            //Declares variables and sets values from GTInstance
+            string GTtitle = GTInstance.GetTitle();
+            string GTheader = GTInstance.GetHeader();
+            string GTfooter = GTInstance.GetFooter();
+            List<OptionSet> optionSetListInstance = GTInstance.GetOptionSetList();
+            
+            //#needs method to retrive primary key from GenericTemplate in order to store it in all OptionSets
+
+            //Instert values from GTInstance to DB, table GenericTemplate
+            DBQuery = "INSERT INTO GenericTemplate (title, header, footer,)" +
+               "Values('" + GTtitle + "', '" + GTheader + "', '" + GTfooter + "')";
+
+
+            for (int i = 0; i <= optionSetListInstance.Count; i++)
+            {
+                //Sets the title value of each optionSet to DB
+                string OSTitle = optionSetListInstance[i].GetOptionSetTitle();
+                DBQuery = "INSERT INTO OptionSet (title)" + "Values('" + OSTitle + "')";
+
+                //##needs method to retrive primary key for each OptionSet in order to store it in each Option for each OptionSet
+
+                //Gets the list of options for each optionset
+                List<Option> optionListInstance = optionSetListInstance[i].GetOptionsList();
+
+                for (int j = 0; j <= optionListInstance.Count; j++)
+                {
+                    string OTitle = optionListInstance[j].GetTitle();
+                    string OMessage = optionListInstance[j].GetMessage();
+                    DBQuery = "INSERT INTO Option (title, message)" + "Values('" + OTitle + "', '" + OMessage + "')";
+                }   
+            }
 
             openConnection();
             command.Connection = connectionToDB;
@@ -111,43 +139,43 @@ namespace CVFeedbackApp
         }
 
         //sql for putting data into Option table
-        public void insertToOption(string optQuery, String title, String message)
-        {
-            SqlCommand command = new SqlCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = optQuery;
+        //public void insertToOption(string optQuery, String title, String message)
+        //{
+        //    SqlCommand command = new SqlCommand();
+        //    command.CommandType = CommandType.Text;
+        //    command.CommandText = optQuery;
 
-            optQuery = "INSERT INTO GenericTemplate (title, message,)" +
-               "Values('" + title + "', '" + message + "')";
+        //    optQuery = "INSERT INTO GenericTemplate (title, message,)" +
+        //       "Values('" + title + "', '" + message + "')";
 
-            openConnection();
-            command.Connection = connectionToDB;
+        //    openConnection();
+        //    command.Connection = connectionToDB;
 
-            int n = command.ExecuteNonQuery();
+        //    int n = command.ExecuteNonQuery();
 
-            closeConnection();
+        //    closeConnection();
 
-            Console.WriteLine("n-" + n);
-        }
+        //    Console.WriteLine("n-" + n);
+        //}
 
-        //sql for putting data into OptionSet table
-        public void insertToOptionSet(string optSetQuery, String title)
-        {
-            SqlCommand command = new SqlCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = optSetQuery;
+        ////sql for putting data into OptionSet table
+        //public void insertToOptionSet(string optSetQuery, String title)
+        //{
+        //    SqlCommand command = new SqlCommand();
+        //    command.CommandType = CommandType.Text;
+        //    command.CommandText = optSetQuery;
             
-            optSetQuery = "INSERT INTO GenericTemplate (title)" +
-               "Values('" + title + "')";
+        //    optSetQuery = "INSERT INTO GenericTemplate (title)" +
+        //       "Values('" + title + "')";
 
-            openConnection();
-            command.Connection = connectionToDB;
+        //    openConnection();
+        //    command.Connection = connectionToDB;
 
-            int n = command.ExecuteNonQuery();
+        //    int n = command.ExecuteNonQuery();
 
-            closeConnection();
+        //    closeConnection();
 
-            Console.WriteLine("n-" + n);
-        }
+        //    Console.WriteLine("n-" + n);
+        //}
     }
 }
