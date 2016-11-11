@@ -19,21 +19,29 @@ namespace CVFeedbackApp
 
         private void SaveOptionCategory_MouseClick(object sender, MouseEventArgs e)
         {
-            this.Hide();
+            if (ErrorChecker.nullTextboxErrorCheck("Option Set Title", OptionSetTitleTextbox.Text))
+            {
+                this.Hide();
 
-            //Creates an instance of OptionSet and generic template
-            OptionSet OptionSetInstance = OptionSet.GetOptionSet();
+                //Creates an instance of OptionSet and generic template
+                OptionSet OptionSetInstance = OptionSet.GetOptionSet();
 
 
-            //Populates OptionSetInstance with texbox content
-            OptionSetInstance.SetOptionSetTitle(OptionSetTitleTextbox.Text);
+                //Populates OptionSetInstance with texbox content
+                OptionSetInstance.SetOptionSetTitle(OptionSetTitleTextbox.Text);
 
-            //Sets the new value for OptionSet tilte to singleton
-            OptionSet.SetNewOptionSet(OptionSetInstance);
+                //Sets the new value for OptionSet tilte to singleton
+                OptionSet.SetNewOptionSet(OptionSetInstance);
 
-            //Creates and displays new OptionForm
-            SetOptionsForm OptionForm1 = new SetOptionsForm();
-            OptionForm1.ShowDialog();
+                //Creates and displays new OptionForm
+                SetOptionsForm OptionForm1 = new SetOptionsForm();
+                OptionForm1.ShowDialog();
+            }
+            else
+            {
+                //does nothing
+            }
+
         }
 
         private void EditPreviousOptions_MouseClick(object sender, MouseEventArgs e)

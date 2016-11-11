@@ -21,23 +21,33 @@ namespace CVFeedbackApp
 
         private void SaveHeaderAndFooter_MouseClick(object sender, MouseEventArgs e)
         {
-            this.Hide();
+            //Checks for input in textboxes if all != null returns true
+            if (ErrorChecker.nullTextboxErrorCheck("Template Title", TitleTextBox.Text) && ErrorChecker.nullTextboxErrorCheck("Header", HeaderTextBox.Text) 
+                && ErrorChecker.nullTextboxErrorCheck("Footer", FooterTextBox.Text))
+            {
+                this.Hide();
 
-            //Creates instance of Generic template
-            GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
+                //Creates instance of Generic template
+                GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
 
-            //Populates genericTemplateInstance with contents from texboxes
-            genericTemplateInstance.SetTemplateTitle(TitleTextBox.Text);
-            genericTemplateInstance.SetHeader(HeaderTextBox.Text);
-            genericTemplateInstance.SetFooter(FooterTextBox.Text);
+                //Populates genericTemplateInstance with contents from texboxes
+                genericTemplateInstance.SetTemplateTitle(TitleTextBox.Text);
+                genericTemplateInstance.SetHeader(HeaderTextBox.Text);
+                genericTemplateInstance.SetFooter(FooterTextBox.Text);
 
-            //Sets instance of generic template
-            GenericTemplate.SetGenericTemplateInstance(genericTemplateInstance);
+                //Sets instance of generic template
+                GenericTemplate.SetGenericTemplateInstance(genericTemplateInstance);
 
 
-            //Creates AddOptionset Template and displays it
-            AddOptionSet Optionset1 = new AddOptionSet();
-            Optionset1.ShowDialog();
+                //Creates AddOptionset Template and displays it
+                AddOptionSet Optionset1 = new AddOptionSet();
+                Optionset1.ShowDialog();
+            }
+            else
+            {
+                //Does nothing
+            }
+            
         }
 
         private void LoadTemplate_MouseClick(object sender, MouseEventArgs e)

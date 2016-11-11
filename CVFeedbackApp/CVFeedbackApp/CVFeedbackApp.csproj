@@ -87,7 +87,7 @@
     <Compile Include="EditTemplateForm.Designer.cs">
       <DependentUpon>EditTemplateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrorChecks.cs" />
+    <Compile Include="ErrorChecker.cs" />
     <Compile Include="FirstMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
