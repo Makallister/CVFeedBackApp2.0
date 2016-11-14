@@ -14,15 +14,17 @@ namespace CVFeedbackApp
         [STAThread]
         static void Main()
         {
+            string connectionString = Properties.Settings.Default.TemplateDBConnectionString;
+            DBConnection.ConnectionStr = connectionString;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FirstMenuForm());
 
             //add connection string here
-            string connectionString = Properties.Settings.Default.TemplateDBConnectionString;
-            DBConnection.ConnectionStr = connectionString;
+            
+            
 
-            Application.Run(new DBForm());
+            //Application.Run(new DBForm());
 
         }
     }

@@ -46,6 +46,9 @@ namespace CVFeedbackApp
         public void openConnection()
         {
             // create the connection to the database as an instance of System.Data.SqlClient.SqlConnection
+
+            
+
             connectionToDB = new System.Data.SqlClient.SqlConnection(connectionStr);
 
             //open the connection
@@ -93,7 +96,8 @@ namespace CVFeedbackApp
 
             SqlCommand command = new SqlCommand();
             command.CommandType = CommandType.Text;
-            command.CommandText = DBQuery;
+            openConnection();
+            command.Connection = connectionToDB;
 
 
             //Declares variables and sets values from GTInstance
@@ -105,33 +109,39 @@ namespace CVFeedbackApp
             //#needs method to retrive primary key from GenericTemplate in order to store it in all OptionSets
 
             //Instert values from GTInstance to DB, table GenericTemplate
-            DBQuery = "INSERT INTO GenericTemplate (title, header, footer,)" +
+            DBQuery = "INSERT INTO GenericTemplate (title, header, footer)" +
                "Values('" + GTtitle + "', '" + GTheader + "', '" + GTfooter + "')";
+            command.CommandText = DBQuery;
+            int n = command.ExecuteNonQuery();
 
-
-            for (int i = 0; i <= optionSetListInstance.Count; i++)
+            for (int i = 0; i < optionSetListInstance.Count; i++)
             {
                 //Sets the title value of each optionSet to DB
                 string OSTitle = optionSetListInstance[i].GetOptionSetTitle();
                 DBQuery = "INSERT INTO OptionSet (title)" + "Values('" + OSTitle + "')";
-
+                command.CommandText = DBQuery;
+                n = command.ExecuteNonQuery();
                 //##needs method to retrive primary key for each OptionSet in order to store it in each Option for each OptionSet
 
                 //Gets the list of options for each optionset
                 List<Option> optionListInstance = optionSetListInstance[i].GetOptionsList();
 
-                for (int j = 0; j <= optionListInstance.Count; j++)
+                for (int j = 0; j < optionListInstance.Count; j++)
                 {
                     string OTitle = optionListInstance[j].GetTitle();
                     string OMessage = optionListInstance[j].GetMessage();
                     DBQuery = "INSERT INTO Option (title, message)" + "Values('" + OTitle + "', '" + OMessage + "')";
-                }   
+
+                    n = command.ExecuteNonQuery();
+                    command.CommandText = DBQuery;
+
+                }
             }
 
-            openConnection();
-            command.Connection = connectionToDB;
+            
+            
 
-            int n = command.ExecuteNonQuery();
+            
 
             closeConnection();
 
