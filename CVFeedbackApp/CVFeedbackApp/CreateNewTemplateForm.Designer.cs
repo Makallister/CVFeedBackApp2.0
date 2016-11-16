@@ -44,7 +44,7 @@
             this.HeaderTextBox.Location = new System.Drawing.Point(35, 109);
             this.HeaderTextBox.Name = "HeaderTextBox";
             this.HeaderTextBox.Size = new System.Drawing.Size(541, 169);
-            this.HeaderTextBox.TabIndex = 0;
+            this.HeaderTextBox.TabIndex = 1;
             this.HeaderTextBox.Text = "";
             // 
             // label1
@@ -108,7 +108,7 @@
             this.TitleTextBox.Location = new System.Drawing.Point(35, 52);
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(100, 20);
-            this.TitleTextBox.TabIndex = 8;
+            this.TitleTextBox.TabIndex = 0;
             // 
             // label3
             // 

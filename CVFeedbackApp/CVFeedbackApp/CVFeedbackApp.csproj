@@ -128,6 +128,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TemplateDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Tracker.cs" />
     <EmbeddedResource Include="AddOptionSet.resx">
       <DependentUpon>AddOptionSet.cs</DependentUpon>
     </EmbeddedResource>
