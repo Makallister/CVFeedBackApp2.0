@@ -12,9 +12,46 @@ namespace CVFeedbackApp
 {
     public partial class AddOptionSet : Form
     {
+        
         public AddOptionSet()
         {
             InitializeComponent();
+
+            //initializes Tracker instance
+            Tracker trackerInstance = Tracker.GetTracker();
+
+            //Checks for selection in first menu
+            int firstMenuDecision = trackerInstance.GetFirstMenuSelection();
+
+            if (firstMenuDecision == 1)
+            {
+                //Gets Generic Template Instance
+                GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
+
+                int optionSetListCount = trackerInstance.GetOptionSetCounter();
+                
+                //Checks if member of list is in range
+                if (optionSetListCount <= genericTemplateInstance.GetOptionSetList().Count)
+                {
+                    this.SaveOtionCategory.Text = "Submit changes";
+                    //Access list of optionset from generic template
+                    //Selects a member based on the count
+                    //Calls the method get title from OptionSetObject
+                    //Sets textbox to results
+                    OptionSetTitleTextbox.Text = genericTemplateInstance.GetOptionSetList()[optionSetListCount].GetOptionSetTitle();
+
+                    optionSetListCount++;
+
+                    //adds new value to the tracker
+                    trackerInstance.SetOptionSetTrackingNumber(optionSetListCount);
+
+                    //sets changes to singleton pattern
+                    Tracker.SetTracker(trackerInstance);
+
+                }
+
+            }
+
         }
 
         private void SaveOptionCategory_MouseClick(object sender, MouseEventArgs e)
@@ -36,10 +73,6 @@ namespace CVFeedbackApp
                 //Creates and displays new OptionForm
                 SetOptionsForm OptionForm1 = new SetOptionsForm();
                 OptionForm1.ShowDialog();
-            }
-            else
-            {
-                //does nothing
             }
 
         }

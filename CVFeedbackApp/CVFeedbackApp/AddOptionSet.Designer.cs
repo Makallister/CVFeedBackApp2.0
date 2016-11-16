@@ -54,15 +54,15 @@
             // 
             this.SaveOtionCategory.Location = new System.Drawing.Point(77, 236);
             this.SaveOtionCategory.Name = "SaveOtionCategory";
-            this.SaveOtionCategory.Size = new System.Drawing.Size(89, 23);
+            this.SaveOtionCategory.Size = new System.Drawing.Size(128, 23);
             this.SaveOtionCategory.TabIndex = 2;
-            this.SaveOtionCategory.Text = "Next >>";
+            this.SaveOtionCategory.Text = "Add New Option Set";
             this.SaveOtionCategory.UseVisualStyleBackColor = true;
             this.SaveOtionCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SaveOptionCategory_MouseClick);
             // 
             // EditPreviousOptions
             // 
-            this.EditPreviousOptions.Location = new System.Drawing.Point(247, 236);
+            this.EditPreviousOptions.Location = new System.Drawing.Point(283, 236);
             this.EditPreviousOptions.Name = "EditPreviousOptions";
             this.EditPreviousOptions.Size = new System.Drawing.Size(75, 23);
             this.EditPreviousOptions.TabIndex = 3;

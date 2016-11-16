@@ -61,7 +61,7 @@
             this.AddOptionToSet.Name = "AddOptionToSet";
             this.AddOptionToSet.Size = new System.Drawing.Size(205, 23);
             this.AddOptionToSet.TabIndex = 2;
-            this.AddOptionToSet.Text = "Save and add other option";
+            this.AddOptionToSet.Text = "Add Other Option to Set";
             this.AddOptionToSet.UseVisualStyleBackColor = true;
             this.AddOptionToSet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddOptionToSet_MouseClick);
             // 
@@ -71,7 +71,7 @@
             this.NewOptionSet.Name = "NewOptionSet";
             this.NewOptionSet.Size = new System.Drawing.Size(191, 23);
             this.NewOptionSet.TabIndex = 3;
-            this.NewOptionSet.Text = "Save and add other option set";
+            this.NewOptionSet.Text = "Add Other Option Set";
             this.NewOptionSet.UseVisualStyleBackColor = true;
             this.NewOptionSet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NewOptionSet_MouseClick);
             // 

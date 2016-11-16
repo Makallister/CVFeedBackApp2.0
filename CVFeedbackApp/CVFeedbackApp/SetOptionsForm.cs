@@ -14,9 +14,48 @@ namespace CVFeedbackApp
     {
         public SetOptionsForm()
         {
-            InitializeComponent();
-            OptionSet optionSetInstance = OptionSet.GetOptionSet();
-            SectionTitleTextBox.Text = optionSetInstance.GetOptionSetTitle();
+            //initializes Tracker instance
+            Tracker trackerInstance = Tracker.GetTracker();
+
+            //Checks for selection in first menu
+            int firstMenuDecision = trackerInstance.GetFirstMenuSelection();
+
+            if (firstMenuDecision == 1)
+            {
+                //Gets Generic Template Instance
+                GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
+
+                int optionSetListCount = trackerInstance.GetOptionSetCounter();
+                int optionListCount = trackerInstance.GetOptionCounter();
+
+                //Checks if list member is in range
+                if (optionListCount <= genericTemplateInstance.GetOptionSetList()[optionListCount].GetOptionsList().Count)
+                {
+                    this.AddOptionToSet.Text = "Edit Next Option";
+                    //Access list of optionset from generic template
+                    //Selects a member based on the OptionSt count
+                    //Access list of option from OptionSet
+                    //Selects member based on count
+                    //Calls method Get title and get message
+                    OptionTitleTextBox.Text = genericTemplateInstance.GetOptionSetList()[optionSetListCount].GetOptionsList()[optionListCount].GetTitle();
+                    OptionMessageTextBox.Text = genericTemplateInstance.GetOptionSetList()[optionSetListCount].GetOptionsList()[optionListCount].GetMessage();
+
+                    optionListCount++;
+
+                    //adds new value to the tracker
+                    trackerInstance.SetOptionSetTrackingNumber(optionListCount);
+
+                    //sets changes to singleton pattern
+                    Tracker.SetTracker(trackerInstance);
+
+                }
+                else if(optionSetListCount <= genericTemplateInstance.GetOptionSetList().Count)
+                {
+                    this.NewOptionSet.Text = "Edit Next Option Set";
+                }
+
+
+            }
         }
         private bool GetErrorResult()
         {
@@ -47,10 +86,6 @@ namespace CVFeedbackApp
                 Option.SetOption(OptionInstance);
                 OptionSet.SetNewOptionSet(OptionSetInstance);
             }
-            else
-            {
-                //Does nothing
-            }
             
 
 
@@ -73,10 +108,6 @@ namespace CVFeedbackApp
                 //creates new form (loop)
                 SetOptionsForm OptionForm2 = new SetOptionsForm();
                 OptionForm2.ShowDialog();
-            }
-            else
-            {
-                //Does Nothing
             }
             
         }
@@ -107,10 +138,6 @@ namespace CVFeedbackApp
 
                 AddOptionSet Optionset2 = new AddOptionSet();
                 Optionset2.ShowDialog();
-            }
-            else
-            {
-                //Does Nothing
             }
             
         }
@@ -146,17 +173,7 @@ namespace CVFeedbackApp
                     FirstMenuForm newFirstMenuForm = new FirstMenuForm();
                     newFirstMenuForm.ShowDialog();
                 }
-                else
-                {
-                    //Does nothing
-                }
             }
-            else
-            {
-                //Does Nothing
-            }
-
-            
 
 
         }

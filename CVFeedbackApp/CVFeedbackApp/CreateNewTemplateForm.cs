@@ -13,9 +13,29 @@ namespace CVFeedbackApp
     public partial class CreateNewTemplateForm : Form
     {
         ErrorChecker ErrorCheck = new ErrorChecker();
+        
+        
+        
         public CreateNewTemplateForm()
         {
             InitializeComponent();
+
+            Tracker trackerInstance = Tracker.GetTracker();
+            //Checks if user has selected Edit existing Template
+
+            int firstMenuDecision = trackerInstance.GetFirstMenuSelection();
+
+            if (firstMenuDecision == 1)
+            {
+                //Gets instance of Generic Template
+                GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
+
+                //Populates textboxes with contents from instance
+                TitleTextBox.Text = genericTemplateInstance.GetTitle();
+                HeaderTextBox.Text = genericTemplateInstance.GetHeader();
+                FooterTextBox.Text = genericTemplateInstance.GetFooter(); 
+            }
+            
             
         }
 

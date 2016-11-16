@@ -17,7 +17,13 @@ namespace CVFeedbackApp
         //String holding from which form user is coming from
         private string fromWhichForm;
 
-        static private Tracker trackersingleton;
+        //Holds an int value for the optionSet to identify each member
+        private int optionSetTrackingNumber;
+
+        //Holds an int value for the option to identify each member
+        private int optionTrackingNumber;
+
+        static private Tracker trackerSingleton;
         
 
         //Setters
@@ -31,9 +37,17 @@ namespace CVFeedbackApp
         {
             gotFromWhichForm = fromWhichForm;
         }
-        public void SetTracker (Tracker gotTracker)
+        public void SetOptionSetTrackingNumber(int gotNumber)
         {
-            gotTracker = trackersingleton;
+            optionSetTrackingNumber = gotNumber;
+        }
+        public void SetOptionTrackingNumber(int gotNumber)
+        {
+            optionTrackingNumber = gotNumber;
+        }
+        static public void SetTracker (Tracker gotTracker)
+        {
+            trackerSingleton = gotTracker;
         }
 
 
@@ -43,25 +57,37 @@ namespace CVFeedbackApp
 
         public int GetFirstMenuSelection()
         {
-            return firstMenuSelection;
+            return trackerSingleton.firstMenuSelection;
         }
         public string GetFromWhichForm()
         {
-            return fromWhichForm;
+            return trackerSingleton.fromWhichForm;
+        }
+        public int GetOptionSetCounter()
+        {
+
+            return trackerSingleton.optionSetTrackingNumber;
+        }
+        public int GetOptionCounter()
+        {
+            return trackerSingleton.optionTrackingNumber;
         }
         public static Tracker GetTracker()
         {
-            if (trackersingleton == null)
+            if (trackerSingleton == null)
             {
                 Tracker trackerinit = new Tracker();
-                trackersingleton = trackerinit;
-                return trackersingleton;
+                trackerSingleton = trackerinit;
+                return trackerSingleton;
             }
             else
             {
-                return trackersingleton;
+                return trackerSingleton;
             }
         }
+
+        //Methods
+
 
     }
 }
