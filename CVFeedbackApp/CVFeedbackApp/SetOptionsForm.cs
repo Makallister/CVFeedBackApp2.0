@@ -15,6 +15,8 @@ namespace CVFeedbackApp
         public SetOptionsForm()
         {
             InitializeComponent();
+            OptionSet optionSetInstance = OptionSet.GetOptionSet();
+            SectionTitleTextBox.Text = optionSetInstance.GetOptionSetTitle();
         }
         private bool GetErrorResult()
         {
@@ -134,7 +136,7 @@ namespace CVFeedbackApp
                 {
                     //creates instance of DBConnection and calls insertion method
                     DBConnection connectionInstance = DBConnection.getDatabaseConection();
-                    connectionInstance.insertToDB(null, genericTemplateInstance);
+                    connectionInstance.insertToDB();
 
                     //Deletes GenericTemplate
                     GenericTemplate.DeleteGenericTemplateInstance();

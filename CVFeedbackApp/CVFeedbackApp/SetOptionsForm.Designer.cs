@@ -32,7 +32,7 @@
             this.OptionMessageTextBox = new System.Windows.Forms.RichTextBox();
             this.AddOptionToSet = new System.Windows.Forms.Button();
             this.NewOptionSet = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.SectionTitleTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -75,12 +75,13 @@
             this.NewOptionSet.UseVisualStyleBackColor = true;
             this.NewOptionSet.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NewOptionSet_MouseClick);
             // 
-            // textBox2
+            // SectionTitleTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(57, 43);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(242, 20);
-            this.textBox2.TabIndex = 4;
+            this.SectionTitleTextBox.Location = new System.Drawing.Point(57, 43);
+            this.SectionTitleTextBox.Name = "SectionTitleTextBox";
+            this.SectionTitleTextBox.ReadOnly = true;
+            this.SectionTitleTextBox.Size = new System.Drawing.Size(242, 20);
+            this.SectionTitleTextBox.TabIndex = 4;
             // 
             // label2
             // 
@@ -139,7 +140,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.SectionTitleTextBox);
             this.Controls.Add(this.NewOptionSet);
             this.Controls.Add(this.AddOptionToSet);
             this.Controls.Add(this.OptionMessageTextBox);
@@ -157,7 +158,7 @@
         private System.Windows.Forms.RichTextBox OptionMessageTextBox;
         private System.Windows.Forms.Button AddOptionToSet;
         private System.Windows.Forms.Button NewOptionSet;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox SectionTitleTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

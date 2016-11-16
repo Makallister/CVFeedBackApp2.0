@@ -89,16 +89,17 @@ namespace CVFeedbackApp
         //insert strings into db
 
         //sql for putting data into GenericTemplate table
-        public void insertToDB(string DBQuery, GenericTemplate GTInstance)
+        public void insertToDB()
         {
-
-            
 
             SqlCommand command = new SqlCommand();
             command.CommandType = CommandType.Text;
             openConnection();
             command.Connection = connectionToDB;
 
+            //Initialises DBQuery and gets instance of Generic Template
+            string DBQuery;
+            GenericTemplate GTInstance = GenericTemplate.GetGenericTemplate();
 
             //Declares variables and sets values from GTInstance
             string GTtitle = GTInstance.GetTitle();
@@ -106,21 +107,41 @@ namespace CVFeedbackApp
             string GTfooter = GTInstance.GetFooter();
             List<OptionSet> optionSetListInstance = GTInstance.GetOptionSetList();
             
-            //#needs method to retrive primary key from GenericTemplate in order to store it in all OptionSets
 
             //Instert values from GTInstance to DB, table GenericTemplate
             DBQuery = "INSERT INTO GenericTemplate (title, header, footer)" +
                "Values('" + GTtitle + "', '" + GTheader + "', '" + GTfooter + "')";
             command.CommandText = DBQuery;
+
+            //int n is used to see if changes are aplied
             int n = command.ExecuteNonQuery();
 
+            //Query to get genTempID from Database
+            DBQuery = "SELECT genTempID FROM GenericTemplate WHERE title= '" + GTtitle +"'";
+            command.CommandText = DBQuery;
+
+            //Executes sql query returns Primary key for the title that has been just inserted
+            int GTPrimaryKey = Convert.ToInt32(command.ExecuteScalar());
+            
+             
             for (int i = 0; i < optionSetListInstance.Count; i++)
             {
                 //Sets the title value of each optionSet to DB
                 string OSTitle = optionSetListInstance[i].GetOptionSetTitle();
-                DBQuery = "INSERT INTO OptionSet (title)" + "Values('" + OSTitle + "')";
+                DBQuery = "INSERT INTO OptionSet (title, genTempID)" + "Values('" + OSTitle + ", '" + GTPrimaryKey + "')";
                 command.CommandText = DBQuery;
                 n = command.ExecuteNonQuery();
+                Console.WriteLine("n-" + n);
+
+                //Query to get optionSetID from Database
+                DBQuery = "SELECT optionSetID FROM OptionSet WHERE title= '" + OSTitle + "'";
+                command.CommandText = DBQuery;
+
+                //Executes sql query returns Primary key for the title that has been just inserted
+                int OSTPrimaryKey = Convert.ToInt32(command.ExecuteScalar());
+
+
+
                 //##needs method to retrive primary key for each OptionSet in order to store it in each Option for each OptionSet
 
                 //Gets the list of options for each optionset
@@ -130,62 +151,57 @@ namespace CVFeedbackApp
                 {
                     string OTitle = optionListInstance[j].GetTitle();
                     string OMessage = optionListInstance[j].GetMessage();
-                    DBQuery = "INSERT INTO Option (title, message)" + "Values('" + OTitle + "', '" + OMessage + "')";
+                    DBQuery = "INSERT INTO Option (title, message, OptionSetID )" + "Values('" + OTitle + "', '" + OMessage + "','" + OSTPrimaryKey + "')";
 
                     n = command.ExecuteNonQuery();
                     command.CommandText = DBQuery;
+                    Console.WriteLine("n-" + n);
 
                 }
             }
-
-            
-            
-
-            
 
             closeConnection();
 
             Console.WriteLine("n-" + n);
         }
 
-        //sql for putting data into Option table
-        //public void insertToOption(string optQuery, String title, String message)
-        //{
-        //    SqlCommand command = new SqlCommand();
-        //    command.CommandType = CommandType.Text;
-        //    command.CommandText = optQuery;
+        //Returns all titles of Generic templates in a list and the number of members
+        public List<string> LoadAllGTTiles()
+        {
+            //Creates new List
+            List<string> allTheTitles = new List<string>();
 
-        //    optQuery = "INSERT INTO GenericTemplate (title, message,)" +
-        //       "Values('" + title + "', '" + message + "')";
+            //Opens Connection and initializes command
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.Text;
+            openConnection();
+            command.Connection = connectionToDB;
+            string DBQuery;
 
-        //    openConnection();
-        //    command.Connection = connectionToDB;
 
-        //    int n = command.ExecuteNonQuery();
+            //Gets the number of members and stores it into variable
+            DBQuery = "SELECT COUNT(title) FROM GenericTemplate";
+            command.CommandText = DBQuery;
+            int numberOfGT = Convert.ToInt32(command.ExecuteScalar());
+            Console.WriteLine("n-" + numberOfGT);
 
-        //    closeConnection();
+            for (int i = 1; i <= numberOfGT; i++ )
+            {
+                //Gets member from database based on primary key
+                DBQuery = "SELECT optionSetID FROM OptionSet WHERE optionSetId= '" + i + "'";
+                command.CommandText = DBQuery;
+                string gotTitle = Convert.ToString(command.ExecuteScalar());
 
-        //    Console.WriteLine("n-" + n);
-        //}
+                //Adds member to list
+                allTheTitles.Add(gotTitle);
+            }
+            closeConnection();
 
-        ////sql for putting data into OptionSet table
-        //public void insertToOptionSet(string optSetQuery, String title)
-        //{
-        //    SqlCommand command = new SqlCommand();
-        //    command.CommandType = CommandType.Text;
-        //    command.CommandText = optSetQuery;
-            
-        //    optSetQuery = "INSERT INTO GenericTemplate (title)" +
-        //       "Values('" + title + "')";
+            //returns list containing all the titles stored in atabase
+            return allTheTitles;
 
-        //    openConnection();
-        //    command.Connection = connectionToDB;
 
-        //    int n = command.ExecuteNonQuery();
+        }
 
-        //    closeConnection();
-
-        //    Console.WriteLine("n-" + n);
-        //}
     }
 }

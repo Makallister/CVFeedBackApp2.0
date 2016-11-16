@@ -34,6 +34,44 @@ namespace CVFeedbackApp
                 return true;
             }
         }
+        static public bool GenericTemplateTitleIdenticalCheck (string userNewGTTitle)
+        {
+            //Gets DBConnection Instance
+            DBConnection connectionInstance = DBConnection.getDatabaseConection();
 
+            //Creates List and sets populates it with database
+            List<string> allTheGTTitles = connectionInstance.LoadAllGTTiles();
+
+            //Creates bool to return test result
+            bool identicalNames = false;
+            do
+            {
+                for (int i = 0; i < allTheGTTitles.Count; i++)
+                {
+                    if (allTheGTTitles[i] == userNewGTTitle)
+                    {
+                        identicalNames = true;
+                    }
+                    else
+                    {
+                        identicalNames = false;
+                    }
+                } 
+            } while (identicalNames == false);
+
+            if (identicalNames == true)
+            {
+                string message = userNewGTTitle + " is already taken as a title, please type another title or go to edit template on main menu";
+                string caption = errorCaption;
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+
+                // Displays the MessageBox.
+
+                result = MessageBox.Show(message, caption, buttons);
+            }
+
+            return identicalNames;
+        }
     }
 }
