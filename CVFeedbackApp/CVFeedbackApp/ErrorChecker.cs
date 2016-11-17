@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CVFeedbackApp
 {
-    
+
     class ErrorChecker
     {
         static private string errorCaption = "Error detected";
@@ -42,9 +35,12 @@ namespace CVFeedbackApp
             //Creates List and sets populates it with database
             List<string> allTheGTTitles = connectionInstance.LoadAllGTTiles();
 
-            //Creates bool to return test result
+            //Creates bool to return test result and bool to stop the loop
             bool identicalNames = false;
-            do
+            bool loopbreack = false;
+
+
+            while (identicalNames == false && loopbreack == false)
             {
                 for (int i = 0; i < allTheGTTitles.Count; i++)
                 {
@@ -52,12 +48,15 @@ namespace CVFeedbackApp
                     {
                         identicalNames = true;
                     }
-                    else
+                    else if (i + 1 == allTheGTTitles.Count)
                     {
-                        identicalNames = false;
+                        loopbreack = true;
                     }
-                } 
-            } while (identicalNames == false);
+
+
+                }  
+            }
+
 
             if (identicalNames == true)
             {

@@ -45,7 +45,7 @@ namespace CVFeedbackApp
             if (ErrorChecker.nullTextboxErrorCheck("Template Title", TitleTextBox.Text) && ErrorChecker.nullTextboxErrorCheck("Header", HeaderTextBox.Text) 
                 && ErrorChecker.nullTextboxErrorCheck("Footer", FooterTextBox.Text))
             { 
-                if (ErrorChecker.GenericTemplateTitleIdenticalCheck(TitleTextBox.Text))
+                if (!ErrorChecker.GenericTemplateTitleIdenticalCheck(TitleTextBox.Text))
                 {
                     this.Hide();
 

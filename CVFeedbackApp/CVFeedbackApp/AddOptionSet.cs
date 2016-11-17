@@ -17,6 +17,7 @@ namespace CVFeedbackApp
         {
             InitializeComponent();
 
+
             //initializes Tracker instance
             Tracker trackerInstance = Tracker.GetTracker();
 
@@ -59,7 +60,7 @@ namespace CVFeedbackApp
             if (ErrorChecker.nullTextboxErrorCheck("Option Set Title", OptionSetTitleTextbox.Text))
             {
                 this.Hide();
-
+                
                 //Creates an instance of OptionSet and generic template
                 OptionSet OptionSetInstance = OptionSet.GetOptionSet();
 
@@ -67,12 +68,13 @@ namespace CVFeedbackApp
                 //Populates OptionSetInstance with texbox content
                 OptionSetInstance.SetOptionSetTitle(OptionSetTitleTextbox.Text);
 
+   
                 //Sets the new value for OptionSet tilte to singleton
                 OptionSet.SetNewOptionSet(OptionSetInstance);
 
                 //Creates and displays new OptionForm
-                SetOptionsForm OptionForm1 = new SetOptionsForm();
-                OptionForm1.ShowDialog();
+                SetOptionsForm OptionForm = new SetOptionsForm();
+                OptionForm.ShowDialog();
             }
 
         }

@@ -15,6 +15,16 @@ namespace CVFeedbackApp
         public LoadForm()
         {
             InitializeComponent();
+
+            //creates instance of DBConnection and calls LoadAllGTTiles
+            DBConnection connectionInstance = DBConnection.getDatabaseConection();
+            List<string> AllGTTitles = connectionInstance.LoadAllGTTiles();
+            
+            for (int i = 0; i < AllGTTitles.Count; i++)
+            {
+                this.GTNameListBox.Items.Add(AllGTTitles[i]);
+            }
+            
         }
     }
 }

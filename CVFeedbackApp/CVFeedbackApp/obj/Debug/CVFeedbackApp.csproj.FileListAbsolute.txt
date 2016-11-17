@@ -96,10 +96,11 @@ C:\Users\fr236\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj
 C:\Users\fr236\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.exe
 C:\Users\fr236\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.pdb
 C:\Users\fr236\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.csprojResolveAssemblyReference.cache
+C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\TemplateDB.mdf
+C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\TemplateDB_log.ldf
 C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.exe.config
-C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.exe
-C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.pdb
-C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.csprojResolveAssemblyReference.cache
+C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.exe
+C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.pdb
 C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.AddOptionSet.resources
 C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.CreateNewTemplateForm.resources
 C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.DBForm.resources
@@ -111,7 +112,6 @@ C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\
 C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.ReplyForm.resources
 C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.SetOptionsForm.resources
 C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.csproj.GenerateResource.Cache
-C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\TemplateDB.mdf
-C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\TemplateDB_log.ldf
-C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.exe
-C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\bin\Debug\CVFeedbackApp.pdb
+C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.exe
+C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.pdb
+C:\Users\Francesc\Documents\GitHub\CVFeedBackApp2.0\CVFeedbackApp\CVFeedbackApp\obj\Debug\CVFeedbackApp.csprojResolveAssemblyReference.cache

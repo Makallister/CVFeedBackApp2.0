@@ -128,7 +128,7 @@ namespace CVFeedbackApp
             {
                 //Sets the title value of each optionSet to DB
                 string OSTitle = optionSetListInstance[i].GetOptionSetTitle();
-                DBQuery = "INSERT INTO OptionSet (title, genTempID)" + "Values('" + OSTitle + ", '" + GTPrimaryKey + "')";
+                DBQuery = "INSERT INTO OptionSet (title, genTempID)" + "Values('" + OSTitle + "',  '" + GTPrimaryKey + "')";
                 command.CommandText = DBQuery;
                 n = command.ExecuteNonQuery();
                 Console.WriteLine("n-" + n);

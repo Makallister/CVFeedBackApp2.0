@@ -28,27 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.GTNameListBox = new System.Windows.Forms.ListBox();
             this.LoadSelectedTemplate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBox1
+            // GTNameListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "a",
-            "b",
-            "c",
-            "d"});
-            this.listBox1.Location = new System.Drawing.Point(59, 69);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(161, 238);
-            this.listBox1.TabIndex = 0;
+            this.GTNameListBox.FormattingEnabled = true;
+            this.GTNameListBox.Location = new System.Drawing.Point(59, 30);
+            this.GTNameListBox.Name = "GTNameListBox";
+            this.GTNameListBox.Size = new System.Drawing.Size(205, 329);
+            this.GTNameListBox.TabIndex = 0;
             // 
             // LoadSelectedTemplate
             // 
-            this.LoadSelectedTemplate.Location = new System.Drawing.Point(59, 332);
+            this.LoadSelectedTemplate.Location = new System.Drawing.Point(299, 336);
             this.LoadSelectedTemplate.Name = "LoadSelectedTemplate";
             this.LoadSelectedTemplate.Size = new System.Drawing.Size(75, 23);
             this.LoadSelectedTemplate.TabIndex = 1;
@@ -58,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 41);
+            this.label1.Location = new System.Drawing.Point(56, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(132, 13);
             this.label1.TabIndex = 2;
@@ -71,7 +66,7 @@
             this.ClientSize = new System.Drawing.Size(478, 391);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LoadSelectedTemplate);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.GTNameListBox);
             this.Name = "LoadForm";
             this.Text = "LoadForm";
             this.ResumeLayout(false);
@@ -81,7 +76,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox GTNameListBox;
         private System.Windows.Forms.Button LoadSelectedTemplate;
         private System.Windows.Forms.Label label1;
     }

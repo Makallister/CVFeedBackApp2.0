@@ -14,6 +14,11 @@ namespace CVFeedbackApp
     {
         public SetOptionsForm()
         {
+            InitializeComponent();
+
+            OptionSet optionSetInstance = OptionSet.GetOptionSet();
+            SectionTitleTextBox.Text = optionSetInstance.GetOptionSetTitle();
+
             //initializes Tracker instance
             Tracker trackerInstance = Tracker.GetTracker();
 
@@ -72,6 +77,7 @@ namespace CVFeedbackApp
             if (GetErrorResult())
             {
                 //Gets/Creates intance of optionSet and Option
+                GenericTemplate genericTemplateInstance = GenericTemplate.GetGenericTemplate();
                 OptionSet OptionSetInstance = OptionSet.GetOptionSet();
                 Option OptionInstance = Option.GetOption();
 
@@ -85,6 +91,8 @@ namespace CVFeedbackApp
                 //Sets Both Instances
                 Option.SetOption(OptionInstance);
                 OptionSet.SetNewOptionSet(OptionSetInstance);
+                OptionSet settedOptionSet = OptionSet.GetOptionSet();
+                genericTemplateInstance.AddOptionSet(settedOptionSet);
             }
             
 
@@ -130,6 +138,7 @@ namespace CVFeedbackApp
 
                 genericTemplateInstance.AddOptionSet(optionSetInstance);
 
+                GenericTemplate.SetGenericTemplateInstance(genericTemplateInstance);
                 //Deletes Current OptionSet
 
                 OptionSet.DeleteOptionSet();
