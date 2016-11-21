@@ -202,6 +202,45 @@ namespace CVFeedbackApp
 
 
         }
+        public GenericTemplate LoadGenericTemplate (string gotGTTitle)
+        {
+            GenericTemplate loadedTemplate = GenericTemplate.GetGenericTemplate();
+
+            //Opens Connection and initializes command
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.Text;
+            openConnection();
+            command.Connection = connectionToDB;
+            string DBQuery;
+
+            //Gets Primary key based on the title
+            DBQuery = "Select genTempID FROM GenericTemplate WHERE title = '" + gotGTTitle + "'";
+            command.CommandText = DBQuery;
+            int loadedGTPK = Convert.ToInt32(command.ExecuteScalar());
+
+            //Gets Header and Footer from Selected GT and loads it into instance
+            DBQuery = "Select header FROM GenericTemplate WHERE genTempID = '" + loadedGTPK+ "'";
+            command.CommandText = DBQuery;
+            loadedTemplate.SetHeader(Convert.ToString(command.ExecuteScalar()));
+
+            DBQuery = "Select footer FROM GenericTemplate WHERE genTempID = '" + loadedGTPK + "'";
+            command.CommandText = DBQuery;
+            loadedTemplate.SetFooter(Convert.ToString(command.ExecuteScalar()));
+
+            //Gets count from OptionSets
+            DBQuery = "SELECT COUNT(genTempID) FROM OptionSet WHERE genTempID = '" + loadedGTPK + "'";
+            command.CommandText = DBQuery;
+            int numberOfOptionSets = Convert.ToInt32(command.ExecuteScalar());
+            //Gets list Of OptionsSets
+            for (int i = 0; i <= numberOfOptionSets; i++)
+            {
+                DBQuery ="SELECT title FROM OptionSet WHERE "
+            }
+
+
+
+
+        }
 
     }
 }
