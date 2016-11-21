@@ -1,0 +1,1 @@
+﻿SELECT genTempID, title From GenericTemplate
