@@ -141,9 +141,6 @@ namespace CVFeedbackApp
                 int OSTPrimaryKey = Convert.ToInt32(command.ExecuteScalar());
 
 
-
-                //##needs method to retrive primary key for each OptionSet in order to store it in each Option for each OptionSet
-
                 //Gets the list of options for each optionset
                 List<Option> optionListInstance = optionSetListInstance[i].GetOptionsList();
 
@@ -153,8 +150,9 @@ namespace CVFeedbackApp
                     string OMessage = optionListInstance[j].GetMessage();
                     DBQuery = "INSERT INTO Option (title, message, OptionSetID )" + "Values('" + OTitle + "', '" + OMessage + "','" + OSTPrimaryKey + "')";
 
-                    n = command.ExecuteNonQuery();
                     command.CommandText = DBQuery;
+                    n = command.ExecuteNonQuery();
+                   
                     Console.WriteLine("n-" + n);
 
                 }
@@ -179,7 +177,7 @@ namespace CVFeedbackApp
             string DBQuery;
 
 
-            //Gets the number of members and stores it into variable
+            //Gets the number of members and stores it into int variable
             DBQuery = "SELECT COUNT(title) FROM GenericTemplate";
             command.CommandText = DBQuery;
             int numberOfGT = Convert.ToInt32(command.ExecuteScalar());
@@ -188,7 +186,7 @@ namespace CVFeedbackApp
             for (int i = 1; i <= numberOfGT; i++ )
             {
                 //Gets member from database based on primary key
-                DBQuery = "SELECT optionSetID FROM OptionSet WHERE optionSetId= '" + i + "'";
+                DBQuery = "SELECT title FROM GenericTemplate WHERE genTempID= '" + i + "'";
                 command.CommandText = DBQuery;
                 string gotTitle = Convert.ToString(command.ExecuteScalar());
 
@@ -202,7 +200,7 @@ namespace CVFeedbackApp
 
 
         }
-        public GenericTemplate LoadGenericTemplate (string gotGTTitle)
+        public void LoadGenericTemplate (string gotGTTitle)
         {
             GenericTemplate loadedTemplate = GenericTemplate.GetGenericTemplate();
 
@@ -232,9 +230,21 @@ namespace CVFeedbackApp
             command.CommandText = DBQuery;
             int numberOfOptionSets = Convert.ToInt32(command.ExecuteScalar());
             //Gets list Of OptionsSets
-            for (int i = 0; i <= numberOfOptionSets; i++)
+            for (int i = 1; i <= numberOfOptionSets; i++)
             {
-                DBQuery ="SELECT title FROM OptionSet WHERE "
+                DBQuery ="SELECT title FROM OptionSet WHERE OptionSetID = '" + i +"'";
+                command.CommandText = DBQuery;
+
+                //Gets PK from OptionSet
+                loadedTemplate.GetOptionSetList()[i].SetOptionSetTitle(Convert.ToString(command.ExecuteScalar()));
+                DBQuery = "SELECT COUNT(OptionSetID FROM OptionSet WHERE OptionSetID = '" + i + "'";
+                command.CommandText = DBQuery;
+                int optionSet = Convert.ToInt32(command.ExecuteScalar());
+
+                //for (int j = 1; j <= optionSetID; j++)
+                //{
+                //    DBQuery = "SELECT ";
+                //}
             }
 
 
