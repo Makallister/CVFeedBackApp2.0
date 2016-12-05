@@ -40,7 +40,7 @@ namespace CVFeedbackApp
 
         }
 
-        private void SaveHeaderAndFooter_MouseClick(object sender, MouseEventArgs e)
+        private void SaveHeaderAndFooter_Click(object sender, EventArgs e)
         {
             //Checks for input in textboxes if all != null returns true
             if (ErrorChecker.nullTextboxErrorCheck("Template Title", TitleTextBox.Text) && ErrorChecker.nullTextboxErrorCheck("Header", HeaderTextBox.Text)
@@ -106,5 +106,6 @@ namespace CVFeedbackApp
             PreviewForm newPreviewForm = new PreviewForm();
             newPreviewForm.ShowDialog();
         }
+
     }
 }

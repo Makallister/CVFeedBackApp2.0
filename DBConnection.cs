@@ -193,10 +193,10 @@ namespace CVFeedbackApp
             command.CommandText = DBQuery;
 
             //int n is used to see if changes are aplied
-            int n = command.ExecuteNonQuery();
+            //int n = command.ExecuteNonQuery();
 
             //Executes sql query returns Primary key for the title that has been just inserted
-            int GTPrimaryKey = Convert.ToInt32(command.ExecuteScalar());
+            //int GTPrimaryKey = Convert.ToInt32(command.ExecuteScalar());
             
             closeConnection();
             

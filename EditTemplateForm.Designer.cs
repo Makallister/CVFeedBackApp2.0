@@ -84,6 +84,7 @@
             this.SaveHeaderAndFooter.TabIndex = 15;
             this.SaveHeaderAndFooter.Text = "Save Edit";
             this.SaveHeaderAndFooter.UseVisualStyleBackColor = true;
+            this.SaveHeaderAndFooter.Click += new System.EventHandler(this.SaveHeaderAndFooter_Click);
             // 
             // label2
             // 
