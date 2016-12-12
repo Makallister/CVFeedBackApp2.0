@@ -52,8 +52,8 @@ namespace CVFeedbackApp
 
             //Creates and displays new form
             this.Hide();
-            LoadForm newLoadForm = new LoadForm();
-            newLoadForm.ShowDialog();
+            EditTemplateForm newEditTemplateForm = new EditTemplateForm();
+            newEditTemplateForm.ShowDialog();
         }
         //Initializes and displays the form for making replies
         private void MakeReplyButton_MouseClick(object sender, MouseEventArgs e)

@@ -144,11 +144,11 @@ namespace CVFeedbackApp
                 //Gets the list of options for each optionset
                 List<Option> optionListInstance = optionSetListInstance[i].GetOptionsList();
 
-                for (int j = 0; j < optionListInstance.Count; j++)
+                for (int j = 0; j <= optionListInstance.Count; j++)
                 {
                     string OTitle = optionListInstance[j].GetTitle();
                     string OMessage = optionListInstance[j].GetMessage();
-                    DBQuery = "INSERT INTO Option (title, message, OptionSetID )" + "Values('" + OTitle + "', '" + OMessage + "','" + OSTPrimaryKey + "')";
+                    DBQuery = "INSERT INTO Option (title, message, OptionSetID ) " + " Values ('" + OTitle + "', '" + OMessage + "'," + OSTPrimaryKey + ")";
 
                     command.CommandText = DBQuery;
                     n = command.ExecuteNonQuery();
@@ -161,6 +161,52 @@ namespace CVFeedbackApp
             closeConnection();
 
             Console.WriteLine("n-" + n);
+        }
+
+        //insert strings into db
+
+        //sql for putting data into GenericTemplate table
+        public void dBEdit()
+        {
+
+            SqlCommand command = new SqlCommand();
+            command.CommandType = CommandType.Text;
+            openConnection();
+            command.Connection = connectionToDB;
+
+            //Initialises DBQuery and gets instance of Generic Template
+            string DBQuery;
+            templateEdit STInstance = templateEdit.GetTemplate();
+
+            //Declares variables and sets values from GTInstance
+            string STtitle = STInstance.GetTitle();
+            string STheader = STInstance.GetHeader();
+            string STfooter = STInstance.GetFooter();
+            string STID = STInstance.GetID();
+
+            /*Previous Code
+             * Delete the pre-existing information from the Database
+            DBQuery = "DELETE FROM GenericTemplate WHERE genTempID = '" + STID + "'";
+
+            //Insert values to table GenericTemplate
+            DBQuery = "INSERT INTO GenericTemplate (genTempID, title, header, footer)" +
+               "Values('" + STID + "', '" + STtitle + "', '" + STheader + "', '" + STfooter + "')";
+            command.CommandText = DBQuery;
+            */
+
+            //Insert values to table GenericTemplate, replacing the original values
+            DBQuery = "Append INTO GenericTemplate Where genTempID = '" + STID +"' (genTempID, title, header, footer)" +
+               "Values('"+ STID + "', '" + STtitle + "', '" + STheader + "', '" + STfooter + "')";
+            command.CommandText = DBQuery;
+
+            //int n is used to see if changes are aplied
+            //int n = command.ExecuteNonQuery();
+
+            //Executes sql query returns Primary key for the title that has been just inserted
+            //int GTPrimaryKey = Convert.ToInt32(command.ExecuteScalar());
+            
+            closeConnection();
+            
         }
 
         //Returns all titles of Generic templates in a list and the number of members
@@ -204,6 +250,8 @@ namespace CVFeedbackApp
         {
             GenericTemplate loadedTemplate = GenericTemplate.GetGenericTemplate();
 
+            loadedTemplate.SetTemplateTitle(gotGTTitle);
+
             //Opens Connection and initializes command
             SqlCommand command = new SqlCommand();
             command.CommandType = CommandType.Text;
@@ -215,6 +263,7 @@ namespace CVFeedbackApp
             DBQuery = "Select genTempID FROM GenericTemplate WHERE title = '" + gotGTTitle + "'";
             command.CommandText = DBQuery;
             int loadedGTPK = Convert.ToInt32(command.ExecuteScalar());
+            
 
             //Gets Header and Footer from Selected GT and loads it into instance
             DBQuery = "Select header FROM GenericTemplate WHERE genTempID = '" + loadedGTPK+ "'";
@@ -241,11 +290,20 @@ namespace CVFeedbackApp
                 command.CommandText = DBQuery;
                 int optionSet = Convert.ToInt32(command.ExecuteScalar());
 
-                //for (int j = 1; j <= optionSetID; j++)
-                //{
-                //    DBQuery = "SELECT ";
-                //}
+                
+                for (int j = 1; j <= optionSet; j++)
+                {
+                    DBQuery = "SELECT title FROM Option WHERE OptionID = '" + j + "'";
+                    command.CommandText = DBQuery;
+                    loadedTemplate.GetOptionSetList()[i].GetOptionsList()[j].SetOptionTitle(Convert.ToString(command.ExecuteScalar()));
+
+                    DBQuery = "SELECT message FROM Option WHERE OptionID = '" + j + "'";
+                    command.CommandText = DBQuery;
+                    loadedTemplate.GetOptionSetList()[i].GetOptionsList()[j].SetOptionMessage(Convert.ToString(command.ExecuteScalar()));
+                }
             }
+            closeConnection();
+            GenericTemplate.SetGenericTemplateInstance(loadedTemplate);
 
 
 
