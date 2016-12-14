@@ -62,6 +62,7 @@
             this.MakeReplyButton.TabIndex = 2;
             this.MakeReplyButton.Text = "Make Reply";
             this.MakeReplyButton.UseVisualStyleBackColor = true;
+            this.MakeReplyButton.Click += new System.EventHandler(this.MakeReplyButton_Click);
             this.MakeReplyButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MakeReplyButton_MouseClick);
             // 
             // DBButton1

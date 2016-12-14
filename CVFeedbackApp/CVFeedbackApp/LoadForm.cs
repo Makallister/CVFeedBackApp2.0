@@ -26,5 +26,12 @@ namespace CVFeedbackApp
             }
             
         }
+
+        private void LoadSelectedTemplate_Click(object sender, EventArgs e)
+        {
+            NameandEmailForm Form = new NameandEmailForm();
+            Form.ShowDialog();
+            this.Close();
+        }
     }
 }

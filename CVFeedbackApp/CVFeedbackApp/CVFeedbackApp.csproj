@@ -101,6 +101,12 @@
     <Compile Include="LoadForm.Designer.cs">
       <DependentUpon>LoadForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NameandEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NameandEmailForm.Designer.cs">
+      <DependentUpon>NameandEmailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Option.cs" />
     <Compile Include="OptionSet.cs" />
     <Compile Include="PreviewForm.cs">
@@ -116,6 +122,18 @@
     </Compile>
     <Compile Include="ReplyForm.Designer.cs">
       <DependentUpon>ReplyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReplySelctionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReplySelctionForm.Designer.cs">
+      <DependentUpon>ReplySelctionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendForm.Designer.cs">
+      <DependentUpon>SendForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SetOptionsForm.cs">
       <SubType>Form</SubType>
@@ -148,6 +166,9 @@
     <EmbeddedResource Include="LoadForm.resx">
       <DependentUpon>LoadForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NameandEmailForm.resx">
+      <DependentUpon>NameandEmailForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PreviewForm.resx">
       <DependentUpon>PreviewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +184,12 @@
     </Compile>
     <EmbeddedResource Include="ReplyForm.resx">
       <DependentUpon>ReplyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReplySelctionForm.resx">
+      <DependentUpon>ReplySelctionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendForm.resx">
+      <DependentUpon>SendForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SetOptionsForm.resx">
       <DependentUpon>SetOptionsForm.cs</DependentUpon>

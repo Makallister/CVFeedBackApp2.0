@@ -49,6 +49,7 @@
             this.LoadSelectedTemplate.TabIndex = 1;
             this.LoadSelectedTemplate.Text = "Load";
             this.LoadSelectedTemplate.UseVisualStyleBackColor = true;
+            this.LoadSelectedTemplate.Click += new System.EventHandler(this.LoadSelectedTemplate_Click);
             // 
             // label1
             // 

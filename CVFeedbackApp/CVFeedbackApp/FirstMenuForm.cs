@@ -79,5 +79,12 @@ namespace CVFeedbackApp
             DBForm NewDBForm = new DBForm();
             NewDBForm.ShowDialog();
         }
+
+        private void MakeReplyButton_Click(object sender, EventArgs e)
+        {
+            LoadForm load = new LoadForm();
+            load.ShowDialog();
+            this.Close();
+        }
     }
 }
